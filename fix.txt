@@ -1,0 +1,15 @@
+Add user to sudoers
+su -
+usermod -aG sudo username
+groups username
+
+nano /etc/ssh/sshd_config
+PermitRootLogin yes
+systemctl restart ssh 
+
+
+fix audio
+sudo apt update
+sudo apt install pipewire pipewire-pulse wireplumber \
+alsa-utils pavucontrol firmware-sof-signed
+reboot
