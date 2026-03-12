@@ -2,22 +2,23 @@ Clipboard: copyq
 sudo apt install copyq
 bindsym $mod+v exec --no-startup-id copyq toggle
 for_window [class="copyq"] floating enable, resize set 950 500, move position center
-
+=======================================================================
 Screenshoots: flameshot
 sudo apt install flameshot
 bindsym $mod+Shift+s  exec --no-startup-id flameshot gui
-
+=======================================================================
 Picom install
 sudo apt update
 sudo apt install picom
 mkdir -p ~/.config/picom
 cp /etc/xdg/picom.conf ~/.config/picom/picom.conf
-
+=======================================================================
 Xorg stuff
 sudo apt install xinput x11-xserver-utils
-
+=======================================================================
 I3wm install guide
 sudo apt update 
 sudo apt install xorg
 sudo apt install i3
 sudo apt install lightdm
+=======================================================================
