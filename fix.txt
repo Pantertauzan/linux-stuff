@@ -28,3 +28,6 @@ Section "InputClass"
     Option "AccelProfile" "flat"
 EndSection
 =======================================================================
+To extract .zip
+sudo apt install file-roller
+=======================================================================
