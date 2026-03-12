@@ -11,6 +11,8 @@ Picom install
 sudo apt update
 sudo apt install picom
 mkdir -p ~/.config/picom
+cp /usr/share/doc/picom/examples/picom.sample.conf ~/.config/picom/picom.conf
+or
 cp /etc/xdg/picom.conf ~/.config/picom/picom.conf
 =======================================================================
 Xorg stuff
