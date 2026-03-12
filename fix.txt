@@ -14,6 +14,8 @@ alsa-utils pavucontrol firmware-sof-signed
 reboot
 =======================================================================
 Fix mouse speeed (xorg)
+first find the mouse id, run 
+xinput list
 
 sudo nano /etc/X11/xorg.conf.d/50-mouse-acceleration.conf
 
