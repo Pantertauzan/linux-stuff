@@ -2,14 +2,27 @@ Add user to sudoers
 su -
 usermod -aG sudo username
 groups username
-
+=======================================================================
 nano /etc/ssh/sshd_config
 PermitRootLogin yes
 systemctl restart ssh 
-
-
+=======================================================================
 fix audio
 sudo apt update
 sudo apt install pipewire pipewire-pulse wireplumber \
 alsa-utils pavucontrol firmware-sof-signed
 reboot
+=======================================================================
+Fix mouse speeed (xorg)
+
+sudo nano /etc/X11/xorg.conf.d/50-mouse-acceleration.conf
+
+Section "InputClass"
+    Identifier "Logitech mouse"
+    MatchProduct "Logitech G102"
+    MatchIsPointer "on"
+    Driver "libinput"
+    Option "AccelSpeed" "0"
+    Option "AccelProfile" "flat"
+EndSection
+=======================================================================
