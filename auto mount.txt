@@ -1,0 +1,5 @@
+sudo apt update
+sudo apt install udiskie udisks2
+
+nano ~/.config/i3/config
+exec --no-startup-id udiskie -t
