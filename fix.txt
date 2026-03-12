@@ -31,3 +31,7 @@ EndSection
 To extract .zip
 sudo apt install file-roller
 =======================================================================
+i3statusbar
+mkdir -p ~/.config/i3status
+cp /etc/i3status.conf ~/.config/i3status/config
+=======================================================================
