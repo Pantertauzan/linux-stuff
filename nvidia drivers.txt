@@ -13,7 +13,7 @@ Suites: trixie-security
 Components: main contrib non-free non-free-firmware
 Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
 =======================================================================
-add in front of all 3 deb lines in the /etc/apt/sources.list.d
+add # in front of all 3 deb lines in the /etc/apt/sources.list.d
 =======================================================================
 sudo apt update
 sudo apt install linux-headers-$(uname -r)
