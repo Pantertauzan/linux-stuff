@@ -24,7 +24,4 @@ sudo apt install xorg
 sudo apt install i3
 sudo apt install lightdm
 =======================================================================
-Auto mount drives
-sudo apt install udiskie udisks2
-exec --no-startup-id udiskie -t
-=======================================================================
+
