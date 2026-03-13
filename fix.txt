@@ -3,11 +3,12 @@ su -
 usermod -aG sudo username
 groups username
 =======================================================================
+Enable root ssh
 nano /etc/ssh/sshd_config
 PermitRootLogin yes
 systemctl restart ssh 
 =======================================================================
-fix audio
+Fix/Install audio
 sudo apt update
 sudo apt install pipewire pipewire-pulse wireplumber \
 alsa-utils pavucontrol firmware-sof-signed
