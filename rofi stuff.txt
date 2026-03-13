@@ -1,0 +1,11 @@
+Power menu
+sudo apt update
+sudo apt install rofi git
+git clone https://github.com/jluttine/rofi-power-menu.git
+cd rofi-power-menu
+sudo cp rofi-power-menu /usr/local/bin/
+sudo chmod +x /usr/local/bin/rofi-power-menu
+
+nano ~/.config/i3/config
+Add:
+bindsym $mod+p exec --no-startup-id rofi -show power-menu -modi "power-menu:rofi-power-menu"
