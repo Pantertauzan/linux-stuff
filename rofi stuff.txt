@@ -1,3 +1,6 @@
+random dump of rofi addons to work fine
+sudo apt install fonts-noto-color-emoji fonts-font-awesome
+============================================================================================
 Power menu
 sudo apt update
 sudo apt install rofi git
