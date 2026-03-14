@@ -11,3 +11,6 @@ into this
 #iface enp5s0 inet dhcp
 
 sudo systemctl restart NetworkManager
+
+Add to i3 config
+exec --no-startup-id nm-applet
