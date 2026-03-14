@@ -33,3 +33,9 @@ pipx install rofimoji
 
 add to i3 conf
 bindsym $mod+period exec --no-startup-id ~/.local/bin/rofimoji --action copy --clipboarder xclip
+============================================================================================
+More rofi-theme-selector options
+git clone https://github.com/newmanls/rofi-themes-collection.git
+mkdir -p ~/.config/rofi/themes
+cp -r rofi-themes-collection/themes/* ~/.config/rofi/themes/
+rofi-theme-selector
