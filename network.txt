@@ -1,1 +1,11 @@
 sudo apt install network-manager network-manager-gnome
+
+
+FIX ETHERNET NOT SHOWING
+sudo nano /etc/network/interfaces
+turn this:
+allow-hotplug enp5s0
+iface enp5s0 inet dhcp
+into this
+#allow-hotplug enp5s0
+#iface enp5s0 inet dhcp
