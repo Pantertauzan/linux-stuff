@@ -13,10 +13,6 @@ nano ~/.config/i3/config
 Add:
 bindsym $mod+p exec --no-startup-id rofi -show power-menu -modi "power-menu:rofi-power-menu"
 ============================================================================================
-
-WARNING MIGHT NOT WORK AND SHOULD TRY TO USE THE METHOD FROM network.txt PROGRAM
-(use the other method only if your network doesnt show in menu)
-
 Wifi manager
 sudo apt install network-manager rofi
 sudo systemctl enable NetworkManager
