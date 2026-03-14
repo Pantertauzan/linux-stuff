@@ -14,13 +14,14 @@ Add:
 bindsym $mod+p exec --no-startup-id rofi -show power-menu -modi "power-menu:rofi-power-menu"
 ============================================================================================
 Wifi manager
-sudo apt install network-manager rofi
+sudo apt install network-manager rofi iw
 sudo systemctl enable NetworkManager
 sudo systemctl start NetworkManager
 mkdir -p ~/.local/bin
 cd ~/.local/bin
 git clone https://github.com/zbaylin/rofi-wifi-menu.git
 chmod +x ~/.local/bin/rofi-wifi-menu/rofi-wifi-menu.sh
+
 TEST BY RUNNING ~/.local/bin/rofi-wifi-menu/rofi-wifi-menu.sh
 
 OPTIONAL ADD TO I3 CONF
