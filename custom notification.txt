@@ -1,0 +1,48 @@
+sudo apt install dunst
+mkdir -p ~/.config/dunst
+nano ~/.config/dunst/dunstrc
+
+edit i3 conf
+nano ~/.config/i3/config
+add
+exec --no-startup-id dunst
+
+to test:
+sudo apt install libnotify-bin
+notify-send "Test"
+
+how to add a config:
+nano ~/.config/dunst/dunstrc
+EXAMPLE:
+  
+[global]
+font = Sans 10
+corner_radius = 8
+transparency = 20
+frame_width = 0
+separator_height = 2
+offset = 10x10
+origin = top-right
+width = 300
+height = 100
+
+[urgency_low]
+background = "#2e3440"
+foreground = "#ffffff"
+timeout = 5
+
+[urgency_normal]
+background = "#3b4252"
+foreground = "#ffffff"
+timeout = 5
+
+[urgency_critical]
+background = "#bf616a"
+foreground = "#ffffff"
+timeout = 0
+
+
+  
+After editing reload dunst:
+pkill dunst
+dunst &
