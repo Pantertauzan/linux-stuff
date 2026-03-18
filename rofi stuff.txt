@@ -50,9 +50,11 @@ Paste this:
 
 #!/bin/bash
 
+current=$(powerprofilesctl get)
+
 options="Performance\nBalanced\nPower Saver"
 
-choice=$(echo -e "$options" | rofi -dmenu -p "Power Mode")
+choice=$(echo -e "$options" | rofi -dmenu -p "Mode: $current")
 
 case "$choice" in
     Performance)
@@ -65,7 +67,6 @@ case "$choice" in
         powerprofilesctl set power-saver
         ;;
 esac
-chmod +x ~/.local/bin/power-menu.sh
 3. Add keybind in i3
 
 Edit config:
