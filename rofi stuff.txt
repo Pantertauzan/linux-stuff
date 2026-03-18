@@ -67,8 +67,10 @@ case "$choice" in
         powerprofilesctl set power-saver
         ;;
 esac
-3. Add keybind in i3
 
+chmod +x ~/.local/bin/power-menu.sh
+
+3. Add keybind in i3
 Edit config:
 nano ~/.config/i3/config
 Add:
