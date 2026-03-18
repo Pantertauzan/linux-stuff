@@ -40,3 +40,37 @@ git clone https://github.com/newmanls/rofi-themes-collection.git
 mkdir -p ~/.config/rofi/themes
 cp -r rofi-themes-collection/themes/* ~/.config/rofi/themes/
 rofi-theme-selector
+============================================================================================
+Performance menu 
+sudo apt install power-profiles-daemon rofi
+sudo systemctl enable power-profiles-daemon
+sudo systemctl start power-profiles-daemon
+nano ~/.local/bin/power-menu.sh
+Paste this:
+
+#!/bin/bash
+
+options="Performance\nBalanced\nPower Saver"
+
+choice=$(echo -e "$options" | rofi -dmenu -p "Power Mode")
+
+case "$choice" in
+    Performance)
+        powerprofilesctl set performance
+        ;;
+    Balanced)
+        powerprofilesctl set balanced
+        ;;
+    Power\ Saver)
+        powerprofilesctl set power-saver
+        ;;
+esac
+chmod +x ~/.local/bin/power-menu.sh
+3. Add keybind in i3
+
+Edit config:
+nano ~/.config/i3/config
+Add:
+bindsym $mod+Shift+p exec ~/.local/bin/power-menu.sh
+Reload i3:
+$mod+Shift+r
