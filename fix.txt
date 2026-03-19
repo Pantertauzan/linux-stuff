@@ -36,3 +36,13 @@ i3statusbar
 mkdir -p ~/.config/i3status
 cp /etc/i3status.conf ~/.config/i3status/config
 =======================================================================
+Turn off keyring
+sudo apt install seahorse
+Run:
+seahorse
+Go to:
+Passwords → Login
+Right click Login → Change Password
+Set:
+Old password = your current user password
+New password = leave empty
