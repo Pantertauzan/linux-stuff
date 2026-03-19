@@ -1,0 +1,7 @@
+sudo apt update
+sudo apt install brightnessctl
+
+add to i3 conf 
+# Brightness fn+f5/f6
+bindsym XF86MonBrightnessUp exec brightnessctl set +10%
+bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
