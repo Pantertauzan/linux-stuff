@@ -8,12 +8,6 @@ nano /etc/ssh/sshd_config
 PermitRootLogin yes
 systemctl restart ssh 
 =======================================================================
-Fix/Install audio
-sudo apt update
-sudo apt install pipewire pipewire-pulse wireplumber \
-alsa-utils pavucontrol firmware-sof-signed
-reboot
-=======================================================================
 Fix mouse speeed (xorg)
 first find the mouse id, run 
 xinput list
