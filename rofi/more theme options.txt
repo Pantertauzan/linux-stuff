@@ -1,0 +1,6 @@
+sudo apt update
+sudo apt install git rofi
+git clone https://github.com/newmanls/rofi-themes-collection.git
+mkdir -p ~/.config/rofi/themes
+cp -r rofi-themes-collection/themes/* ~/.config/rofi/themes/
+rofi-theme-selector
