@@ -1,0 +1,7 @@
+sudo apt update
+sudo apt install -y rofi pipx xclip xdotool fonts-noto-color-emoji
+pipx ensurepath
+pipx install rofimoji
+
+add to i3 conf
+bindsym $mod+period exec --no-startup-id ~/.local/bin/rofimoji --action copy --clipboarder xclip
