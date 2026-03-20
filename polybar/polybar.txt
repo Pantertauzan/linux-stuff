@@ -1,0 +1,6 @@
+sudo apt update 
+sudo apt install polybar
+add to i3 conf:
+exec --no-startup-id polybar
+
+(this is a simple method with 1 single monitor and default configuration)
