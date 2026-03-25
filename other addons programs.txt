@@ -24,4 +24,5 @@ sudo apt install xorg
 sudo apt install i3
 sudo apt install lightdm
 =======================================================================
-
+Text viewer/editor
+sudo apt install gedit
