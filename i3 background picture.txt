@@ -5,4 +5,4 @@ HOW TO USE:
 feh --bg-fill /path/to/photo
 
 MUST ADD TO I3CONF
-xec --no-startup-id feh --bg-fil /path/to/photo
+exec --no-startup-id feh --bg-fil /path/to/photo
