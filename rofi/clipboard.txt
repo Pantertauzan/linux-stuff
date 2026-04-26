@@ -1,0 +1,23 @@
+wget https://github.com/erebe/greenclip/releases/download/v4.2/greenclip
+chmod +x greenclip
+chmod +x greenclip
+
+
+ADD TO THIS:
+~/.config/greenclip.toml
+
+[greenclip]
+  history_file = "/home/erebe/.cache/greenclip.history"
+  max_history_length = 50
+  max_selection_size_bytes = 0
+  trim_space_from_selection = true
+  use_primary_selection_as_input = false
+  blacklisted_applications = []
+  enable_image_support = true
+  image_cache_directory = "/tmp/greenclip"
+  static_history = [
+ '''¯\_(ツ)_/¯''',
+]
+
+to run just do
+rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
