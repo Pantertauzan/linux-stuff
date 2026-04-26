@@ -21,3 +21,9 @@ ADD TO THIS:
 
 to run just do
 rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
+
+
+add to i3 config:
+
+bindsym $mod+v exec --no-startup-id rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
+exec --no-startup-id greenclip daemon
