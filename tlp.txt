@@ -1,5 +1,7 @@
 sudo nano /etc/tlp.conf
 
+
+# Enable TLP
 TLP_ENABLE=1
 
 # --- Runtime Power Management ---
@@ -8,10 +10,8 @@ RUNTIME_PM_ON_BAT=auto
 # --- CPU Settings (Intel optimized) ---
 CPU_SCALING_GOVERNOR_ON_BAT=schedutil
 CPU_ENERGY_PERF_POLICY_ON_BAT=power
-
 CPU_MIN_PERF_ON_BAT=0
 CPU_MAX_PERF_ON_BAT=20
-
 CPU_BOOST_ON_BAT=0
 
 # --- Platform Profile ---
@@ -29,5 +29,40 @@ USB_AUTOSUSPEND=1
 USB_EXCLUDE_PHONE=1
 
 # --- Wi-Fi Power Saving ---
+WIFI_PWR_ON_BAT=saved
+WIFI_PWR_LEVEL_ON_BAT=auto
+
+# --- Audio Power Saving ---
 SOUND_POWER_SAVE_ON_BAT=1
 SOUND_POWER_SAVE_CONTROLLER=Y
+
+
+
+
+# --- CPU Settings (AC: full performance) ---
+CPU_SCALING_GOVERNOR_ON_AC=performance
+CPU_ENERGY_PERF_POLICY_ON_AC=performance
+
+CPU_MIN_PERF_ON_AC=0
+CPU_MAX_PERF_ON_AC=100
+
+CPU_BOOST_ON_AC=1
+
+# --- Platform Profile ---
+PLATFORM_PROFILE_ON_AC=performance
+
+# --- Runtime PM (less aggressive) ---
+RUNTIME_PM_ON_AC=on
+
+# --- PCIe ---
+PCIE_ASPM_ON_AC=performance
+
+# --- Storage ---
+SATA_LINKPWR_ON_AC=max_performance
+DEVICES_NVME_POWER_ON_AC=default
+
+# --- Wi-Fi ---
+WIFI_PWR_ON_AC=off
+
+# --- Audio ---
+SOUND_POWER_SAVE_ON_AC=0
