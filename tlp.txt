@@ -1,5 +1,5 @@
 sudo nano /etc/tlp.conf
-
+after do sudo systemctl restart tlp
 
 # Enable TLP
 TLP_ENABLE=1
