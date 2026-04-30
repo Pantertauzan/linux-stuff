@@ -68,3 +68,21 @@ WIFI_PWR_ON_AC=off
 
 # --- Audio ---
 SOUND_POWER_SAVE_ON_AC=0
+
+# --- Graphics (Intel Specific) ---
+INTEL_GPU_MIN_FREQ_ON_AC=300
+INTEL_GPU_MIN_FREQ_ON_BAT=300
+INTEL_GPU_MAX_FREQ_ON_BAT=800
+
+# --- Advanced Power Management ---
+# Help with Intel's "Sata Aggressive Link Power Management"
+SATA_LINKPWR_ON_BAT=med_power_with_dipm
+
+# --- Radio Devices ---
+# Disable bluetooth on boot to save power (enable manually when needed)
+DEVICES_TO_DISABLE_ON_STARTUP="bluetooth"
+
+# --- Battery Care ---
+# Ensure thresholds apply to potential secondary batteries/docks
+START_CHARGE_THRESH_BAT1=40
+STOP_CHARGE_THRESH_BAT1=80
