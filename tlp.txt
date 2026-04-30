@@ -1,6 +1,5 @@
 sudo nano /etc/tlp.conf
-sudo systemctl restart tlp
-test with:
+apply with:
 sudo tlp-stat -b
 
 # ------------------------------------------------------------------------------
