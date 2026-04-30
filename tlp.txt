@@ -1,5 +1,7 @@
 sudo nano /etc/tlp.conf
 sudo systemctl restart tlp
+test with:
+sudo tlp-stat -b
 
 # ------------------------------------------------------------------------------
 # TLP Configuration: ThinkPad L14 Gen 1 Intel
