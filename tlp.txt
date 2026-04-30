@@ -1,5 +1,7 @@
 sudo nano /etc/tlp.conf
 apply with:
+sudo tlp start
+
 sudo tlp-stat -b
 
 # ------------------------------------------------------------------------------
