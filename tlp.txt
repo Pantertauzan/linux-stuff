@@ -1,88 +1,89 @@
 sudo nano /etc/tlp.conf
-after do sudo systemctl restart tlp
+sudo systemctl restart tlp
+
+# ------------------------------------------------------------------------------
+# TLP Configuration: ThinkPad L14 Gen 1 Intel
+# ------------------------------------------------------------------------------
 
 # Enable TLP
 TLP_ENABLE=1
 
-# --- Runtime Power Management ---
-RUNTIME_PM_ON_BAT=auto
-
-# --- CPU Settings (Intel optimized) ---
+# --- CPU Settings (Intel Optimized) ---
+# Schedutil is great for battery; Performance for AC.
 CPU_SCALING_GOVERNOR_ON_BAT=schedutil
+CPU_SCALING_GOVERNOR_ON_AC=performance
+
+# Energy Performance Preference (EPP)
 CPU_ENERGY_PERF_POLICY_ON_BAT=power
+CPU_ENERGY_PERF_POLICY_ON_AC=performance
+
+# Performance Limits (30% cap on battery to prevent drain)
 CPU_MIN_PERF_ON_BAT=0
-CPU_MAX_PERF_ON_BAT=20
+CPU_MAX_PERF_ON_BAT=30
+CPU_MIN_PERF_ON_AC=0
+CPU_MAX_PERF_ON_AC=100
+
+# Turbo Boost
 CPU_BOOST_ON_BAT=0
+CPU_BOOST_ON_AC=1
+
+# Idle Governor
+CPU_IDLE_GOVERNOR_ON_BAT=menu
+CPU_IDLE_GOVERNOR_ON_AC=menu
+
+# --- Intel Graphics (i915) ---
+# Limit GPU clock speed on battery to reduce heat and power draw
+INTEL_GPU_MIN_FREQ_ON_BAT=300
+INTEL_GPU_MAX_FREQ_ON_BAT=800
+INTEL_GPU_MIN_FREQ_ON_AC=300
+# Leave MAX/BOOST at default for AC
 
 # --- Platform Profile ---
+# Controls the system's power/thermal firmware limits
 PLATFORM_PROFILE_ON_BAT=low-power
+PLATFORM_PROFILE_ON_AC=performance
 
-# --- Storage Power Saving ---
-SATA_LINKPWR_ON_BAT=min_power
+# --- Storage & NVMe ---
+# Aggressive power saving for the internal NVMe SSD
 DEVICES_NVME_POWER_ON_BAT=power_save
+DEVICES_NVME_POWER_ON_AC=default
+AHCI_RUNTIME_PM_ON_BAT=auto
 
-# --- PCIe (safe aggressive mode) ---
+# Chipset Link Power Management
+SATA_LINKPWR_ON_BAT=med_power_with_dipm
+SATA_LINKPWR_ON_AC=max_performance
+
+# --- Runtime Power Management ---
+# Automatically suspends idle devices
+RUNTIME_PM_ON_BAT=auto
+RUNTIME_PM_ON_AC=on
+
+# --- Networking (Wi-Fi & Bluetooth) ---
+WIFI_PWR_ON_BAT=on
+WIFI_PWR_ON_AC=off
+WIFI_PWR_LEVEL_ON_BAT=auto
+
+# Disable Bluetooth on startup to save power (turn on manually when needed)
+DEVICES_TO_DISABLE_ON_STARTUP="bluetooth"
+
+# --- Audio Power Saving ---
+SOUND_POWER_SAVE_ON_BAT=1
+SOUND_POWER_SAVE_ON_AC=0
+SOUND_POWER_SAVE_CONTROLLER=Y
+
+# --- PCIe & ASPM ---
 PCIE_ASPM_ON_BAT=powersave
+PCIE_ASPM_ON_AC=performance
 
 # --- USB Power Saving ---
 USB_AUTOSUSPEND=1
 USB_EXCLUDE_PHONE=1
 
-# --- Wi-Fi Power Saving ---
-WIFI_PWR_ON_BAT=saved
-WIFI_PWR_LEVEL_ON_BAT=auto
-
-# --- Audio Power Saving ---
-SOUND_POWER_SAVE_ON_BAT=1
-SOUND_POWER_SAVE_CONTROLLER=Y
-
-# --- Battery max charge ---
+# --- ThinkPad Battery Care ---
+# Longevity thresholds: Start charging at 40%, stop at 80%
 START_CHARGE_THRESH_BAT0=40
 STOP_CHARGE_THRESH_BAT0=80
 
-
-# --- CPU Settings (AC: full performance) ---
-CPU_SCALING_GOVERNOR_ON_AC=performance
-CPU_ENERGY_PERF_POLICY_ON_AC=performance
-
-CPU_MIN_PERF_ON_AC=0
-CPU_MAX_PERF_ON_AC=100
-
-CPU_BOOST_ON_AC=1
-
-# --- Platform Profile ---
-PLATFORM_PROFILE_ON_AC=performance
-
-# --- Runtime PM (less aggressive) ---
-RUNTIME_PM_ON_AC=on
-
-# --- PCIe ---
-PCIE_ASPM_ON_AC=performance
-
-# --- Storage ---
-SATA_LINKPWR_ON_AC=max_performance
-DEVICES_NVME_POWER_ON_AC=default
-
-# --- Wi-Fi ---
-WIFI_PWR_ON_AC=off
-
-# --- Audio ---
-SOUND_POWER_SAVE_ON_AC=0
-
-# --- Graphics (Intel Specific) ---
-INTEL_GPU_MIN_FREQ_ON_AC=300
-INTEL_GPU_MIN_FREQ_ON_BAT=300
-INTEL_GPU_MAX_FREQ_ON_BAT=800
-
-# --- Advanced Power Management ---
-# Help with Intel's "Sata Aggressive Link Power Management"
-SATA_LINKPWR_ON_BAT=med_power_with_dipm
-
-# --- Radio Devices ---
-# Disable bluetooth on boot to save power (enable manually when needed)
-DEVICES_TO_DISABLE_ON_STARTUP="bluetooth"
-
-# --- Battery Care ---
-# Ensure thresholds apply to potential secondary batteries/docks
-START_CHARGE_THRESH_BAT1=40
-STOP_CHARGE_THRESH_BAT1=80
+# --- Thermal Management ---
+# Allow TLP to work alongside thermald for better Intel thermal scaling
+TLP_THERMAL_CONTROL=1
